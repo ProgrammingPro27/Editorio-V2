@@ -59,7 +59,6 @@ Iso3d.prototype.collision = function (ctx, mouseX, mouseY, event, map, row, col,
                             map[row][col][map[row][col].length] = new Iso3d(baseEl.x, baseEl.y - baseEl.width, baseEl.width, baseEl.h).drawCube()
                             map[row][col][map[row][col].length-1].colors = block
                         }
-                        //трябва да се сортира колоната, която получава блокчето (и в 3те случая за всяка конкретна колона)
 
                         //if (dir == 2) {
                         //    map[row][col][map[row][col].length] = new Iso3d(baseEl.x, baseEl.y - baseEl.width, baseEl.width, baseEl.h).drawCube()
