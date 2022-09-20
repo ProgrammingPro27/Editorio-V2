@@ -4,10 +4,6 @@ function Chunk(ctx) {
     this.flying = 0;
     this.flying2 = 0;
     this.action = "cube"
-
-    // когато сменяш от performance mode към editable, трябва да направиш грида отново, 
-    // защото ще е със старите елементи, а те нямат опция за collision
-
     this.points = (xx, yy, color) => { return { x: xx, y: yy, colors: color } }
     this.cube = (x, y, color) => {
         let cube = new Iso3d(x, y, 25, 25).drawCube()
@@ -25,7 +21,6 @@ Chunk.prototype.createFlatChunk = function (tileW, tileZ, xx, yy, x, y, z) {
             this.mapData[i][j] = [];
             for (let k = 0; k < z; k++) {
                 this.mapData[i][j][k] = this[this.action](xx, yy, "808080A9A9A9909090")
-                //  this.mapData[i][j][k].dontRender = false
                 yy -= tileZ;
             };
             xx += tileW;
@@ -93,7 +88,7 @@ Chunk.prototype.createPerlinChunk = function (perlin, gridSize, resolution, grou
 
         for (let y = 0; y < m.length; y++) {
             for (let x = 0; x < m[y].length; x++) {
-                let base = this.mapData[x][y][0]//TODO ->направи си свой base, като генерираш координати за основа, БЕЗ да ги запазваш!
+                let base = this.mapData[x][y][0]
                 let yy = base.y
                 for (let i = 1; i < m[x][y]; i++) {
                     yy -= 25
@@ -101,9 +96,7 @@ Chunk.prototype.createPerlinChunk = function (perlin, gridSize, resolution, grou
                         this.mapData[x][y][0].dontRender = true
                     }
                     let el = this[this.action](base.x, yy, "808080A9A9A9909090")
-                    //намери общото между 3те проверки в ИФА и го пресметни като разлика, която да служи за индикатор КЪДЕ да се поставя И КАКЪВ БРОЙ блокчета
-                    //ИДЕЯТА Е ДА НЕ СЕ ЦИКЛИ ненужно и да се увеличава ненужно стойността yy, като може просто да се умножи по базовия брой
-                    //ти ще циклиш до разликата, не до пълното число
+
                     if (m[x + 1]) {
                         if (m[x][y + 1]) {
                             if (i < m[x][y + 1] && i < m[x + 1][y] && i < m[x][y] - 1) {
@@ -135,7 +128,6 @@ Chunk.prototype.createFilledPerlinChunk = function (perlin, gridSize, resolution
                 for (let i = 1; i < v; i++) {
                     yy -= 25
                     this.mapData[x][y][i] = this[this.action](base.x, yy, "808080A9A9A9909090")
-                    // this.mapData[x][y][i].dontRender = false
                 }
                 xoff += gridSize / resolution;
             };
