@@ -73,7 +73,7 @@ Iso3d.prototype.collision = function (ctx, mouseX, mouseY, event, map, row, col,
                         //}
                     },
                     removeTile: () => {
-                        map[row][col] = map[row][col].filter(item => item !== map[row][col][el]);
+                        map[row][col] = map[row][col].filter(item => item !== value);
                     }
                 };
                 events[event]();
