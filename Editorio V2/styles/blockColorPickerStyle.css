@@ -1,0 +1,19 @@
+  #blockColorWindow {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+  }
+
+  #container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #colorInput {
+    height: 80%;
+    width: 100%;
+  }
+
+  #saveButton {
+    height: 20%;
+  }

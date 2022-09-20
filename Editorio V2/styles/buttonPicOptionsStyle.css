@@ -1,0 +1,18 @@
+#buttonPicOptions{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 20%;
+    height: 100px;
+    overflow: scroll;
+}
+.picButton{
+    background-color: Transparent;
+    cursor: pointer;
+    border: none;
+    top: 0;
+    right: 0;
+}
+.picButton:hover{
+    background-color: #ffa000;
+}

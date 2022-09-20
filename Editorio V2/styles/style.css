@@ -1,0 +1,21 @@
+*{
+    padding:0;
+    margin:0;           
+}
+body{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 50vw auto;
+    background-color: #696969;
+}
+
+::-webkit-scrollbar {display:none;}
+
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
